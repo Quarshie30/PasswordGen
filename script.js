@@ -132,6 +132,7 @@ var options = getPasswordOptions();
 var availableCharacters = [];
 var guaranteedCharacters = [];
 
+//if statments to check type of availble character & randomise
 if (options.includeSpecial) {
   availableCharacters= availableCharacters.concat(specialCharacters);
   guaranteedCharacters.push(getRandom(specialCharacters));
@@ -159,10 +160,10 @@ for (var i = 0; i < remainingLength; i++) {
   var randomChar=getRandom(availableCharacters);
   guaranteedCharacters.push(randomChar);
 
-return "Generated password"
+return guaranteedCharacters.join("Generated password")
 
 }
-
+}
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
@@ -175,4 +176,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+generateBtn.addEventListener('click', writePassword)
