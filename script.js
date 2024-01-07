@@ -90,7 +90,11 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  var length = parseInt(prompt("Choose the length of password between 8 - 128 Characters"));// ParseInt function covers first argument to a string and returns an integer
 
+  if (isNaN(length) length < 8 length > 128) {
+    alert("Length of password must be between 9 and 128.")
+  }
 }
 
 // Function for getting a random element from an array
@@ -101,6 +105,9 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
 console.log("Button clicked")
+
+
+return "Generated password"
 }
 
 // Get references to the #generate element
