@@ -92,10 +92,30 @@ var upperCasedCharacters = [
 function getPasswordOptions() {
   var length = parseInt(prompt("Choose the length of password between 8 - 128 Characters"));// ParseInt function covers first argument to a string and returns an integer
 
-  if (isNaN(length) length < 8 length > 128) {
-    alert("Length of password must be between 9 and 128.")
+  if (isNaN(length) || length < 8 || length > 128) {
+    alert("Length of password must be between 9 and 128.");
+  }
+
+  var includeSpecial = confirm("Include special characters?");
+  var includeNumeric = confirm("Include numeric characters");
+  var includelowerCase = confirm("Include lowercase characters?");
+  var includeupperCase = confirm ("Include uppercase characters?");
+  console.log("characters");
+
+  if (!includeSpecial && !include && !includeLowercase && !includeUppercase){
+    alert("Pick one character type.");
+  
+  }
+
+  return {
+    length,
+    includeNumeric,
+    includeSpecial,
+    includeupperCase,
+    includelowerCase,
   }
 }
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
