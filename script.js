@@ -137,7 +137,30 @@ if (options.includeSpecial) {
   guaranteedCharacters.push(getRandom(specialCharacters));
 }
 
+if (options.includeNumeric) {
+  availableCharacters= availableCharacters.concat(numericCharacters);
+  guaranteedCharacters.push(getRandom(numericCharacters));
+}
+
+if (options.includelowerCase) {
+  availableCharacters= availableCharacters.concat(lowerCasedCharacters);
+  guaranteedCharacters.push(getRandom(lowerCasedCharacters));
+}
+
+if (options.includeUppercase) {
+  availableCharacters= availableCharacters.concat(includeUppercase);
+  guaranteedCharacters.push(getRandom(includeUppercase));
+}
+
+//Check remainign length
+var remainingLength = options.length - guaranteedCharacters, Length;
+for (var i = 0; i < remainingLength; i++) {
+
+  var randomChar=getRandom(availableCharacters);
+  guaranteedCharacters.push(randomChar);
+
 return "Generated password"
+
 }
 
 // Get references to the #generate element
