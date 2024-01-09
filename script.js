@@ -97,23 +97,24 @@ function getPasswordOptions() {
   }
 
   var includeSpecial = confirm("Include special characters?");
-  var includeNumeric = confirm("Include numeric characters");
-  var includelowerCase = confirm("Include lowercase characters?");
-  var includeupperCase = confirm ("Include uppercase characters?");
+  var includeNumeric = confirm("Include numeric characters?");
+  var includeLowerCase = confirm("Include lowercase characters?");
+  var includeUpperCase = confirm("Include uppercase characters?");
+
   console.log("characters");
 
-  if (!includeSpecial && !include && !includeLowercase && !includeUppercase){
+  if (!includeSpecial && !include && !includeLowercase && !includeUpperCase){
     alert("Pick one character type.");
   
   }
 
   return {
     length,
-    includeNumeric,
     includeSpecial,
-    includeupperCase,
-    includelowerCase,
-  }
+    includeNumeric,
+    includeLowerCase,
+    includeUpperCase
+  };
 }
 
 
@@ -127,42 +128,42 @@ function getRandom(arr) {
 function generatePassword() {
 console.log("Button clicked")
 
-var options = getPasswordOptions();
+  var options = getPasswordOptions();
 
-var availableCharacters = [];
-var guaranteedCharacters = [];
+  var availableCharacters = [];
+  var guaranteedCharacters = [];
 
 //if statments to check type of availble character & randomise
 if (options.includeSpecial) {
-  availableCharacters= availableCharacters.concat(specialCharacters);
+  availableCharacters = availableCharacters.concat(specialCharacters);
   guaranteedCharacters.push(getRandom(specialCharacters));
 }
 
 if (options.includeNumeric) {
-  availableCharacters= availableCharacters.concat(numericCharacters);
+  availableCharacters = availableCharacters.concat(numericCharacters);
   guaranteedCharacters.push(getRandom(numericCharacters));
 }
 
-if (options.includelowerCase) {
-  availableCharacters= availableCharacters.concat(lowerCasedCharacters);
+if (options.includeLowerCase) {
+  availableCharacters = availableCharacters.concat(lowerCasedCharacters);
   guaranteedCharacters.push(getRandom(lowerCasedCharacters));
 }
 
-if (options.includeUppercase) {
-  availableCharacters= availableCharacters.concat(includeUppercase);
-  guaranteedCharacters.push(getRandom(includeUppercase));
+if (options.includeUpperCase) {
+  availableCharacters = availableCharacters.concat(upperCasedCharacters);
+  guaranteedCharacters.push(getRandom(upperCasedCharacters));
 }
+
 
 //Check remainign length
-var remainingLength = options.length - guaranteedCharacters, Length;
+var remainingLength = options.length - guaranteedCharacters.length;
 for (var i = 0; i < remainingLength; i++) {
-
-  var randomChar=getRandom(availableCharacters);
+  var randomChar = getRandom(availableCharacters);
   guaranteedCharacters.push(randomChar);
-
-return guaranteedCharacters.join("Generated password")
-console.log(guaranteedCharacters)
 }
+
+return guaranteedCharacters.join("");
+
 }
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
