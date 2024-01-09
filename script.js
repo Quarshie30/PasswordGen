@@ -1,4 +1,4 @@
-// Array of special characters to be included in password
+//Array of special characters to be included in password
 var specialCharacters = [
   '@',
   '%',
@@ -119,7 +119,7 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  var randomIndex = math.floor(Math.random() * arr.length);
+  var randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
 
@@ -161,7 +161,7 @@ for (var i = 0; i < remainingLength; i++) {
   guaranteedCharacters.push(randomChar);
 
 return guaranteedCharacters.join("Generated password")
-
+console.log(guaranteedCharacters)
 }
 }
 // Get references to the #generate element
